@@ -115,6 +115,7 @@
 @media (max-width: 1024px) {
   .album-list {
     grid-template-columns: 1fr 1fr;
+    margin: 0;
   }
 }
 
@@ -122,5 +123,6 @@
 @media (max-width: 666px) {
   .album-list {
     grid-template-columns: 1fr;
+    margin: 0;
   }
 }
