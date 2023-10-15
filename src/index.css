@@ -9,13 +9,14 @@
   color: white;
 }
 
-.body {
-  font-family: 'Helvetica Neue', sans-serif;
+.main-title {
+  display: flex;
+  justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.sub-title {
+  display: flex;
+  justify-content: center;
 }
 
 /* Default grid layout for desktop */
@@ -80,18 +81,28 @@ code {
 }
 
 .artistName a {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
   text-decoration: none;
   color: #a0a0a0;
 }
 
 .albumName a {
-  color: white;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
   text-decoration: none;
 }
 
-.artistName:hover,
 .albumName:hover {
   text-decoration: underline; 
+  color: #ffffff;
+}
+
+.artistName:hover {
+  text-decoration: underline; 
+  color: #a0a0a0;
 }
 
 /* Add hover effect to the icon wrappers */

@@ -7,7 +7,8 @@ export const App = () => {
 
   return (
     <div className="App">
-      <h1>Music Releases</h1>
+      <h1 className='main-title'>New Albums & Singles</h1>
+      <h4 className='sub-title'>By Daniel Bladh Stenberg</h4>
       <div className="album-list">
         {albums.map((album, index) => (
           <Album key={index} albumData={album} />
