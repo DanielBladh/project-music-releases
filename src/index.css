@@ -27,6 +27,7 @@ code {
 
 .album {
   position: relative;
+  margin: 10px;
 }
 
 /* Apply opacity to the image inside cover-image-wrapper with an easing transform */
@@ -78,8 +79,14 @@ code {
   transform: translate(-50%, -50%) scale(2.5); 
 }
 
-.artistName {
-  color: #a0a0a0
+.artistName a {
+  text-decoration: none;
+  color: #a0a0a0;
+}
+
+.albumName a {
+  color: white;
+  text-decoration: none;
 }
 
 .artistName:hover,
