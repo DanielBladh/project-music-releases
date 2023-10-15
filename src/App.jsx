@@ -1,7 +1,18 @@
-import data from "./data.json";
-
-console.log(data);
+import React from 'react';
+import data from './data.json';
+import Album from './Album'; 
 
 export const App = () => {
-  return <div>Find me in src/app.jsx!</div>;
+  const albums = data.albums.items;
+
+  return (
+    <div className="App">
+      <h1>Music Releases</h1>
+      <div className="album-list">
+        {albums.map((album, index) => (
+          <Album key={index} albumData={album} />
+        ))}
+      </div>
+    </div>
+  );
 };
