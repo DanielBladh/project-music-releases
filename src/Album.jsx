@@ -24,14 +24,13 @@ export default function Album({ albumData }) {
         </span>
       </div>
       <div className="albumName">
-        <a href={albumData.external_urls.spotify} target="_blank" rel="noopener noreferrer">
-          <AlbumName name={albumData.name} externalUrl={albumData.external_urls.spotify} />
-        </a>
+        <AlbumName
+          name={albumData.name}
+          externalUrl={albumData.external_urls.spotify}
+        />
       </div>
       <div className="artistName">
-        <a href={albumData.artists[0].external_urls.spotify} target="_blank" rel="noopener noreferrer">
-          <ArtistName artists={albumData.artists} />
-        </a>
+        <ArtistName artists={albumData.artists} />
       </div>
     </div>
   );
