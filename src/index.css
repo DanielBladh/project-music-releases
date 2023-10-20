@@ -12,6 +12,7 @@
   display: flex;
   justify-content: space-between; 
   align-items: center; 
+  margin: 25px 50px;
 }
 
 .main-title {
@@ -29,12 +30,11 @@
 }
 
 .sortButtons {
-  margin-left: 50px;
   display: flex;
   gap: 10px;
 }
 
-.sortButtons button {
+.sortButtons button, .playlist-button-container button {
   appearance: none;
   background-color: #2ea44f;
   border: 1px solid rgba(27, 31, 35, .15);
@@ -83,6 +83,10 @@
 .sortButtons button:active {
   background-color: #298e46;
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+.playlist-button-container button{
+  margin-right: 15px;
 }
 
 /* Default grid layout for desktop */
@@ -254,8 +258,10 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
-  padding: 4px 12px;
-  position: relative;
+  padding: 2px 12px;
+  right: 0;
+  margin-right: 20px;
+  position: fixed;
   text-align: center;
   text-decoration: none;
   user-select: none;
@@ -266,7 +272,7 @@
 }
 
 .close-button:hover {
-  background-color: #0ec040;
+  background-color: #c00e0e;
 }
 
 /* Styles for tablet (2 albums per row) */
@@ -292,8 +298,8 @@
   .sortTitle {
     margin-left: 10px;
   }
-  .sortButtons {
-    margin: 10px;
+  .header-buttons {
+    margin: 0px
   }
   .sortButtons button {
     width: 80px;

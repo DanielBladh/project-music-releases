@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import data from "./data.json";
-import Album from "./Album";
-import Header from "./Header";
-import PlayLists from "./PlayLists"
+import Album from "./components/Album";
+import Header from "./components/Header";
+import PlayLists from "./components/PlayLists"
 
 export const App = () => {
   const albums = data.albums.items;
@@ -17,6 +17,7 @@ export const App = () => {
   };
 
   // Function to sort albums based on album_type
+  
   const sortAlbums = (type) => {
     setSortType(type);
   };
@@ -38,12 +39,12 @@ export const App = () => {
               <button onClick={() => sortAlbums("album")}>Albums</button>
               <button onClick={() => sortAlbums("single")}>Singles</button>
               <button onClick={() => sortAlbums(null)}>Show All</button>
+            </div>
               <div className="playlist-button-container">
                 <button onClick={toggleSidebar}>
                   {sidebarVisible ? "Close Playlists" : "Open Playlists"}
                 </button>
               </div>
-            </div>
           </div>
           {sidebarVisible && (
             <PlayLists

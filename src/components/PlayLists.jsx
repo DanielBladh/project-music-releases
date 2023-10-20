@@ -1,6 +1,6 @@
 import React from "react";
-import data from "./stretched-goal.json";
-import "./index.css";
+import data from "../stretched-goal.json";
+import "../index.css";
 
 function PlayLists({ modalVisible, toggleSidebar }) {
   const { items } = data.playlists;
