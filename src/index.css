@@ -287,6 +287,9 @@
   .sortButtons {
     margin: 10px;
   }
+  .header-buttons {
+    margin: 0px;
+  }
 }
 
 /* Styles for mobile (1 album per row) */
