@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import data from "./data.json";
 import Album from "./Album";
-import PlayLists from "./PlayLists";
+import Header from "./Header";
+import PlayLists from "./PlayLists"
 
 export const App = () => {
   const albums = data.albums.items;
   const [modalVisible, setModalVisible] = useState(false);
   const [sortType, setSortType] = useState(null);
 
-  const toggleModal = () => {
-    setModalVisible(!modalVisible);
-  };
+  const [sidebarVisible, setSidebarVisible] = useState(false); 
 
-  const closeModal = () => {
-    setModalVisible(false);
+  // Function to toggle sidebar visibility
+  const toggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
   };
 
   // Function to sort albums based on album_type
@@ -32,23 +32,25 @@ export const App = () => {
     <div className="App">
       <div className="main-content">
         <div className="header">
-          <button
-            className={`playlist-button ${modalVisible ? "active" : ""}`}
-            onClick={toggleModal}
-          >
-            {modalVisible ? "Close Playlists" : "Open Playlistssssssssssssssssssssssssssss"}
-          </button>
-          {modalVisible && (
-            <PlayLists modalVisible={modalVisible} closeModal={closeModal} />
-          )}
-          <h1 className="main-title">New Albums & Singles</h1>
-          <h4 className="sub-title">By Daniel Bladh Stenberg</h4>
-            <h4 className="sortTitle">Sort by Album/Single</h4>
-          <div className="sortButtons">
-            <button onClick={() => sortAlbums("album")}>Albums</button>
-            <button onClick={() => sortAlbums("single")}>Singles</button>
-            <button onClick={() => sortAlbums(null)}>Show All</button>
+          <Header />
+          <div className="header-buttons">
+            <div className="sortButtons">
+              <button onClick={() => sortAlbums("album")}>Albums</button>
+              <button onClick={() => sortAlbums("single")}>Singles</button>
+              <button onClick={() => sortAlbums(null)}>Show All</button>
+              <div className="playlist-button-container">
+                <button onClick={toggleSidebar}>
+                  {sidebarVisible ? "Close Playlists" : "Open Playlists"}
+                </button>
+              </div>
+            </div>
           </div>
+          {sidebarVisible && (
+            <PlayLists
+              modalVisible={modalVisible}
+              toggleSidebar={toggleSidebar}
+            />
+          )}
         </div>
         <div className="album-list">
           {sortedAlbums.map((album, index) => (

@@ -1,10 +1,17 @@
 :root {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: white;
+  font-family: Helvetica,sans-serif;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
 }
 
 .main-title {
@@ -37,7 +44,7 @@
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-family: -apple-system,system-ui ,Helvetica,sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -108,7 +115,6 @@
   opacity: 1 !important;
 }
 
-/* STORLEK PÅ ALBUMBILDR */
 .cover-image-wrapper img {
   position: relative;
   height: auto;
@@ -116,7 +122,6 @@
   width: 100%;
 }
 
-/* SÅ IKONERNA HAMNAR PÅ ALBUM BILDEN */
 .albumIcons {
   display: none;
   position: absolute;
@@ -127,27 +132,24 @@
   cursor: pointer;
 }
 
-/* STORLEK PÅ IKONER SAMT KONVERTERA TILL VITA */
 .cover-image-wrapper .albumIcons img {
   width: 15px;
   height: 15px;
   filter: brightness(0) invert(1);
 }
 
-/* SKALAR UPP IKONERNA NÄR MAN HOVRAR ÖVER DOM */
 .albumIcons img:hover {
   transform: scale(1.1); /* Scale up on hover */
 }
 
-/* FÖR ATT FÅ FRAM IKONERNA NÄR MAN HOVRAR ÖVER ALBUM */
 .cover-image-wrapper:hover .albumIcons {
   display: flex;
   gap: 10px;
   transform: translate(-50%, -50%) scale(2.5); 
 }
 
-.artistName a {
-  font-family: 'Helvetica', sans-serif;
+.artistName a, span {
+  font-family: Helvetica,sans-serif;
   font-size: 14px;
   text-decoration: none;
   color: #a0a0a0;
@@ -174,6 +176,97 @@
 /* Add hover effect to the icon wrappers */
 .albumIcons .icon-wrapper:hover {
   transform: scale(1.3);
+}
+
+
+/* SIDEBAR STYLING */
+.editor-picks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Add spacing between header and other content */
+}
+
+.sidebar-playlist-list {
+  position: fixed; /* Fixed position to keep the sidebar on the right */
+  right: 0; /* Show the sidebar on the right side */
+  width: 500px;
+  height: 60%;
+  background-color: rgba(0, 0, 0, 0.904);
+  z-index: 2;
+  transition: right 0.3s; /* Add a transition for smoother right changes */
+  overflow-y: auto; /* Add vertical scrolling for the sidebar */
+}
+
+.sidebar.modal-active {
+  right: 0; /* Keep it on the right when modal-active */
+}
+
+.sidebar h2 {
+  color: #2ea44f;
+  font-family: "Helvetica Neue";
+}
+
+.sidebar-playlist-item {
+  margin: 18px 0;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  border-bottom: 1px solid #2ea44f;
+  font-family: Helvetica,sans-serif;
+}
+
+.sidebar-playlist-item img {
+  width: 80px;
+  height: 80px;
+}
+
+.sidebar-playlist-item p {
+  margin: 5px 0;
+}
+
+.playlist-info {
+  padding: 0 10px;
+}
+
+.playlist-info a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.playlist-name {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 2px 0;
+}
+
+.close-button {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui, Helvetica,sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 4px 12px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.close-button:hover {
+  background-color: #0ec040;
 }
 
 /* Styles for tablet (2 albums per row) */
@@ -208,71 +301,11 @@
     padding: 5px 0;
     margin: 0;
   }
-}
-
-/* Updated CSS for the sidebar */
-
-
-/* .playlist-button {
-  width: 60px;
-  background-color: #4444;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  z-index: 2; 
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: width 0.3s;
-  overflow: hidden;
-  height: 100vh;
-}
-
-.modal {
-  width: 100px;
-  background-color: #4444;
-  color: #fff;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  z-index: 1; 
-  overflow: hidden;
-  transition: width 0.3s;
-  position: relative; 
-}
-
-.modal.modal-active {
-  width: 300px; 
-  z-index: 2; 
-}
-
-.modal .sidebar {
-  display: block;
-  width: 500px;
-  background-color: red;
-  position: relative; 
-  z-index: 3; 
-}
-
-.modal-active {
-  width: 300px;
-  position: fixed;
-} 
-*/
-
-.sidebar-playlist-list {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  background-color: red;
-  z-index: 2;
-} 
-
-.playlist-button {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  position: fixed;
-
+  .sidebar .sidebar-playlist-list {
+    width: 70%;
+    height: 60%;
+  }
+  .close-button {
+    margin-right: 12px;
+  }
 }
